@@ -1,5 +1,6 @@
 # Contextual-Thesaurus
 Dependencies: nltk, numpy, torch
 
-nltk.download('averaged_perceptron_tagger')
-nltk.download('wordnet')
+Required nltk downloads:<br/>
+`nltk.download('averaged_perceptron_tagger')` <br/>
+`nltk.download('wordnet')`
