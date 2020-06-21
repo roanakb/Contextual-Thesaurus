@@ -11,7 +11,7 @@ With further experimentation of word embeddings and classification methods, this
 Required nltk downloads:<br/>
 `nltk.download('averaged_perceptron_tagger')` <br/>
 `nltk.download('wordnet')`
-##Examples from Demo
+## Examples from Demo
 `sentence = "I tightened the bolt to make sure it didn't fall apart"` <br/>
 `word = "bolt"`
 
@@ -26,5 +26,5 @@ Required nltk downloads:<br/>
 
 `sentence = "The high current on the wire shocked me"` <br/>
 `word = "current"`
-##Dependencies
+## Dependencies
 Specified in `requirements.txt`
