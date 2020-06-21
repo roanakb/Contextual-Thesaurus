@@ -18,3 +18,8 @@ def load_model():
     model.build_vocab_k_words(K=100000)
     print('done building vocab')
     return model
+
+
+print('loading model')
+model = load_model()
+print('model loaded')

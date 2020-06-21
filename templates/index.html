@@ -1,0 +1,15 @@
+<!doctype html>
+<title>Contextual Thesaurus</title>
+<form method="POST">
+    Word: <input name="word">
+    Sentence: <input name="sent">
+    <input type="submit">
+</form>
+{% if synsets %}
+<div>Given Word: {{word}}</div>
+<div>Given Sentence: {{sentence}}</div>
+<div>Possible Synsets: {{synsets}}</div>
+<div>Determined Synset: {{best_words}}</div>
+{% else %}
+<div>This doesnt really work that well</div>
+{% endif %}

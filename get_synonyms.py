@@ -6,13 +6,7 @@ from nltk.corpus import wordnet as wn
 # nltk.download('wordnet')
 # nltk.download('punkt')
 
-from model_init import load_model
-print('loading model')
-model = load_model()
-print('model loaded')
-
-sent1 = "The current from the wire hurt"
-word1 = "current"
+from model_init import model
 
 
 def get_words(in_word):
@@ -34,36 +28,32 @@ def cosine(u, v):
     return np.dot(u, v) / (np.linalg.norm(u) * np.linalg.norm(v))
 
 
-def get_best_words(word, sent):
-    syn = get_words(word)
+def get_best_words(word, sent, syn):
     parts = re.split(f'{word}', sent)
-    oldSent = model.encode([sent])[0]
-    oldWord = word
+    old_sent = model.encode([sent])[0]
 
-    synMax = -float('inf')
-    bestWords = []
-    wordMax = -float('inf')
-    bestWord = ''
+    syn_max = -float('inf')
+    best_words = []
+    word_max = -float('inf')
+    best_word = ''
 
     for synset in syn:
         total = 0
         for w in synset:
-            newSent = f'{w}'.join(parts)
-            sim = cosine(model.encode([newSent])[0], oldSent)
-            if sim > wordMax:
-                bestWord = w
-                wordMax = sim
+            new_sent = f'{w}'.join(parts)
+            sim = cosine(model.encode([new_sent])[0], old_sent)
+            if sim > word_max:
+                best_word = w
+                word_max = sim
             total += sim
             print(f'{w} and {sim}')
         avg = total / len(synset)
         print(f'{synset} and {avg}')
-        if avg > synMax:
-            bestWords = synset
-            synMax = avg
+        if avg > syn_max:
+            best_words = synset
+            syn_max = avg
+    print(best_words)
 
-    print(bestWords)
+    print(f'best word indiv: {best_word}')
 
-    print(f'best word indiv: {bestWord}')
-
-
-get_best_words(word1, sent1)
+    return best_words
