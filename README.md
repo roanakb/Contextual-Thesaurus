@@ -7,8 +7,7 @@ Synsets are acquired using WordNet.
 [Facebook Research Paper for Infersent Embeddings](https://arxiv.org/abs/1705.02364) <br/>
 [Repository for Infersent Embeddings](https://github.com/facebookresearch/InferSent)
 ## Known Limitations
-This method is extremely limited, and mostly a proof of concept.
-It requires the context to be very explicit in the sentence, as can be seen in the example sentences below.
+This method requires the context to be very explicit in the sentence, as can be seen in the example sentences below.
 With further experimentation of word embeddings and classification methods, this may be improved.
 ## Setup
 #### Dependencies
